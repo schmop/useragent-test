@@ -29,6 +29,9 @@ describe('User agent expectancies', () => {
             agent: "IServ/2.1.0-26-ga122ce8f/26686-always-show-trigger-again (eu.iserv.WebApp; Build 1) Mozilla/5.0 (Linux; Android 6.0.1; Nexus 6P Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Mobile Safari/537.36",
             modern: false,
         }, {
+            agent: "IServ/2.1.0-26-ga122ce8f/26686-always-show-trigger-again (eu.iserv.WebApp; Build 1) Mozilla/5.0 (Linux; Android 6.0.1; Nexus 6P Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2526.83 Mobile Safari/537.36",
+            modern: true,
+        }, {
             agent: "IServ/2.1.0-23-g88963bfd/develop (eu.iserv.WebApp; Build 1) Mozilla/5.0 (Linux; Android 5.0.2; Android SDK built for x86_64 Build/LSY66K) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/37.0.0.0 Mobile Safari/537.36",
             modern: false,
         }, {
@@ -39,8 +42,8 @@ describe('User agent expectancies', () => {
     ];
     userAgents.forEach(agent => {
         test('Testing agent: ' + agent.agent, () => {
-
             let browser = server.WebAppInternals.identifyBrowser(agent.agent);
+            console.log(browser);
             expect(modern.isModern(browser)).toBe(agent.modern);
         });
     });
