@@ -1,0 +1,11 @@
+# Testing Meteor Useragent handling
+
+First install using:
+```
+npm i
+```
+
+In order to execute the tests, use:
+```
+npm test -- useragent.test.js
+```
